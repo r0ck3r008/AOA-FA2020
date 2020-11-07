@@ -1,0 +1,6 @@
+*.pdf
+!doc/ProgrammingProjectFa20.pdf
+bin/*
+!bin/.gitkeep
+tmp/*
+!tmp/.gitkeep
