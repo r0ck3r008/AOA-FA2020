@@ -18,6 +18,8 @@ void input_tc(vector<vector<int>> &grid, int *height, FILE *f)
         int rows=1, cols;
         while(rows!=0) {
                 getline(&line, &n, f);
+                char buf[32000];
+                strncpy(buf, line, strlen(line));
                 if(flag) {
                         rows = strtol(strtok(buf, " "), NULL, 10);
                         cols = strtol(strtok(NULL, " "), NULL, 10);
