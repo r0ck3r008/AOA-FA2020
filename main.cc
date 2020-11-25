@@ -25,6 +25,8 @@ void input_tc(vector<vector<int>> &grid, int *height, FILE *f)
                         cols = strtol(strtok(NULL, " "), NULL, 10);
                         *height = strtol(strtok(NULL, " "), NULL, 10);
                         flag=false;
+                        vector<vector<int>> vec(rows, vector<int>(cols));
+                        grid=vec;
                 } else {
                         vector<int> column(cols);
                         column.push_back(strtol(strtok(buf, " "), NULL, 10));
