@@ -1,4 +1,4 @@
-COMPILER := clang++
+COMPILER := g++
 COMPILER_FLAGS := -g
 COMPILE_PATH := ${shell pwd}/include
 
