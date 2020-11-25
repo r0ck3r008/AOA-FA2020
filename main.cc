@@ -8,7 +8,7 @@
 
 using std::vector;
 
-static FILE *logfile = stdout;
+FILE *logfile = stdout;
 
 void input_tc(vector<vector<int>> &grid, int *height, FILE *f)
 {
