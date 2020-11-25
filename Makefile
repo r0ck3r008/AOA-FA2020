@@ -4,10 +4,10 @@ COMPILE_PATH := ${shell pwd}/include
 
 ALL_OBJS := algorithms/*.o timer/*.o main.o
 
-all: AlgoTowersHelper.out
+all: AlgoTowers
 
-AlgoTowersHelper.out: algorithms_objs timer_objs main_obj
-	${COMPILER} ${ALL_OBJS} -o bin/AlgoTowersHelper.out
+AlgoTowers: algorithms_objs timer_objs main_obj
+	${COMPILER} ${ALL_OBJS} -o AlgoTowers
 	$(MAKE) clean_objs
 
 main_obj: main.cc
@@ -27,4 +27,4 @@ clean_objs:
 	rm -f main.o
 
 clean: clean_objs
-	rm -rf bin/AlgoTowersHelper.out
+	rm -rf AlgoTowers
