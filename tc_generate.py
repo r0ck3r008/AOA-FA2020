@@ -9,7 +9,7 @@ hval = randint(1, uint16_max)  # height
 
 gridville = [[randint(1, uint16_max) for i in range(cols)] for i in range(rows)]
 
-with open('tc.txt', 'w') as f:
+with open(argv[2], 'w') as f:
     f.write('{} {} {}\n'.format(rows, cols, hval))
     for i in range(rows):
         for j in range(cols):
