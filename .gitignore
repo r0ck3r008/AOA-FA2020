@@ -5,3 +5,5 @@ bin/*
 tmp/*
 !tmp/.gitkeep
 .clang
+testcases/*
+!testcases/.gitkeep
