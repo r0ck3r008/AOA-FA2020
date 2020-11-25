@@ -15,10 +15,9 @@ void input_tc(vector<vector<int>> &grid, int *height, FILE *f)
         char *line=NULL;
         size_t n=0;
         bool flag=true;
-        int rows, cols;
-        while(getline(&line, &n, f)) {
-                char buf[2048];
-                strncpy(buf, line, 2048 * sizeof(char));
+        int rows=1, cols;
+        while(rows!=0) {
+                getline(&line, &n, f);
                 if(flag) {
                         rows = strtol(strtok(buf, " "), NULL, 10);
                         cols = strtol(strtok(NULL, " "), NULL, 10);
@@ -30,6 +29,7 @@ void input_tc(vector<vector<int>> &grid, int *height, FILE *f)
                         for(int i=0; i<cols-1; i++)
                                 column.push_back(strtol(strtok(NULL, " "), NULL, 10));
                         grid.push_back(column);
+                        rows--;
                 }
                 free(line);
                 line=NULL;
