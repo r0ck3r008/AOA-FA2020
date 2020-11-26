@@ -80,6 +80,7 @@ execute(FILE *inf)
         int rows = strtol(strtok(buf, " "), NULL, 10);
         int cols = strtol(strtok(NULL, " "), NULL, 10);
         int height = strtol(strtok(NULL, " "), NULL, 10);
+        int val;
         vector<vector<int>> grid(rows, vector<int>(cols, 0));
         for(int i=0; i<rows; i++) {
                 free(line);
@@ -90,9 +91,12 @@ execute(FILE *inf)
                 getline(&line, &n, inf);
                 strncpy(buf, line, strlen(line));
 
-                grid[i][0] = strtol(strtok(buf, " "), NULL, 10);
-                for(int j=1; j<cols; j++)
-                        grid[i][j] = strtol(strtok(NULL, " "), NULL, 10);
+                val = strtol(strtok(buf, " "), NULL, 10);
+                grid[i][0] = (val >= height) ? (1) : (0);
+                for(int j=1; j<cols; j++) {
+                        val = strtol(strtok(NULL, " "), NULL, 10);
+                        grid[i][j] = (val >= height) ? (1) : (0);
+                }
         }
 
         task_runner(grid, height);
