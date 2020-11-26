@@ -50,13 +50,11 @@ input_tc(vector<vector<int>> &grid, int *height, FILE *f)
 }
 
 void
+printout(int *ret, int sz)
 {
-        int ret[4]={0};
-        algorithms::alg2::task3(grid, height, ret);
-
-        for(int i=0; i<4; i++) {
+        for(int i=0; i<sz; i++){
                 cout << ret[i];
-                if(i!=3)
+                if(i!=sz-1)
                         cout << ",";
                 else
                         cout << endl;
