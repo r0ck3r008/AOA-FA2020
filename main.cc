@@ -20,38 +20,6 @@ using namespace algorithms::alg2;
 FILE *logfile = stdout;
 
 void
-input_tc(vector<vector<int>> &grid, int *height, FILE *f)
-{
-        char *line=NULL;
-        size_t n=0;
-        bool flag=true;
-        int rows=1, cols;
-        while(rows!=0) {
-                getline(&line, &n, f);
-                char buf[32000];
-                strncpy(buf, line, strlen(line));
-                if(flag) {
-                        rows = strtol(strtok(buf, " "), NULL, 10);
-                        cols = strtol(strtok(NULL, " "), NULL, 10);
-                        *height = strtol(strtok(NULL, " "), NULL, 10);
-                        flag=false;
-                        vector<vector<int>> vec(rows, vector<int>(cols));
-                        grid=vec;
-                } else {
-                        vector<int> column(cols);
-                        column.push_back(strtol(strtok(buf, " "), NULL, 10));
-                        for(int i=0; i<cols-1; i++)
-                                column.push_back(strtol(strtok(NULL, " "), NULL, 10));
-                        grid.push_back(column);
-                        rows--;
-                }
-                free(line);
-                line=NULL;
-                n=0;
-        }
-}
-
-void
 printout(int *ret, int sz)
 {
         for(int i=0; i<sz; i++){
@@ -99,6 +67,33 @@ task_runner(vector<vector<int>> &grid, int height)
         algorithms::alg3::task5(grid, height, ret_rec);
         printout(ret_rec, 4);
         t.stop(eol);
+void
+execute(FILE *inf)
+{
+        char buf[32000] = {0};
+        char *line=NULL;
+        size_t n=0;
+        getline(&line, &n, inf);
+        strncpy(buf, line, strlen(line));
+        int rows = strtol(strtok(buf, " "), NULL, 10);
+        int cols = strtol(strtok(NULL, " "), NULL, 10);
+        int height = strtol(strtok(NULL, " "), NULL, 10);
+        vector<vector<int>> grid(rows, vector<int>(cols, 0));
+        for(int i=0; i<rows; i++) {
+                free(line);
+                line=NULL;
+                n=0;
+                explicit_bzero(buf, sizeof(char) * 32000);
+
+                getline(&line, &n, inf);
+                strncpy(buf, line, strlen(line));
+
+                grid[i][0] = strtol(strtok(buf, " "), NULL, 10);
+                for(int j=1; j<cols; j++)
+                        grid[i][j] = strtol(strtok(NULL, " "), NULL, 10);
+        }
+
+        task_runner(grid, height);
 }
 
 int
@@ -121,12 +116,7 @@ main(int argc, char **argv)
                 fprintf(stderr, "[-]Fopen: %s: %s\n", argv[1], strerror(errno));
                 _exit(1);
         }
-
-        vector<vector<int>> grid;
-        int height=0;
-        input_tc(grid, &height, inf);
-
-        task_runner(grid, height);
+        execute(inf);
 
         fclose(inf);
         fclose(logfile);
