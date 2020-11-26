@@ -9,11 +9,9 @@ using std::pair;
 namespace algorithms {
 	namespace alg1 {
 		void task1(vector<vector<int>> &, int,
-                                pair<pair<int, int>,
-                                pair<int, int>> &);
+                                int *);
 		void task2(vector<vector<int>> &, int,
-                                pair<pair<int, int>,
-                                pair<int, int>> &);
+                                int *);
 	}
 }
 
