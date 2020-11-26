@@ -6,7 +6,9 @@
 #include<unistd.h>
 #include<errno.h>
 
+#include"algorithms/alg1.h"
 #include"algorithms/alg2.h"
+#include"algorithms/alg3.h"
 
 using std::vector;
 using std::cout;
@@ -48,7 +50,6 @@ input_tc(vector<vector<int>> &grid, int *height, FILE *f)
 }
 
 void
-task_runner(vector<vector<int>> &grid, int height)
 {
         int ret[4]={0};
         algorithms::alg2::task3(grid, height, ret);
@@ -60,6 +61,32 @@ task_runner(vector<vector<int>> &grid, int height)
                 else
                         cout << endl;
         }
+}
+
+void
+task_runner(vector<vector<int>> &grid, int height)
+{
+        int ret_sq[2] = {0}, ret_rec[4] = {0};
+
+        /* Task 1 */
+        algorithms::alg1::task1(grid, height, ret_sq);
+        printout(ret_sq, 2);
+
+        /* Task 2 */
+        algorithms::alg1::task2(grid, height, ret_sq);
+        printout(ret_sq, 2);
+
+        /* Task 3 */
+        algorithms::alg2::task3(grid, height, ret_rec);
+        printout(ret_rec, 4);
+
+        /* Task 4 */
+        algorithms::alg3::task4(grid, height, ret_rec);
+        printout(ret_rec, 4);
+
+        /* Task 5 */
+        algorithms::alg3::task5(grid, height, ret_rec);
+        printout(ret_rec, 4);
 }
 
 int
