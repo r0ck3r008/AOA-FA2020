@@ -35,38 +35,40 @@ void
 task_runner(vector<vector<int>> &grid, int height)
 {
         string comma = ",", eol = "\n";
-        int ret_sq[2] = {0}, ret_rec[4] = {0};
+        int ret[4] = {0};
         Timer t;
 
         /* Task 1 */
         t.start();
-        algorithms::alg1::task1(grid, height, ret_sq);
-        printout(ret_sq, 2);
+        algorithms::alg1::task1(grid, height, ret);
         t.stop(comma);
+        printout(ret, 4);
 
         /* Task 2 */
         t.start();
-        algorithms::alg1::task2(grid, height, ret_sq);
-        printout(ret_sq, 2);
+        algorithms::alg1::task2(grid, height, ret);
         t.stop(comma);
+        printout(ret, 4);
 
         /* Task 3 */
         t.start();
-        algorithms::alg2::task3(grid, height, ret_rec);
-        printout(ret_rec, 4);
+        algorithms::alg2::task3(grid, height, ret);
         t.stop(comma);
+        printout(ret, 4);
 
         /* Task 4 */
         t.start();
-        algorithms::alg3::task4(grid, height, ret_rec);
-        printout(ret_rec, 4);
+        algorithms::alg3::task4(grid, height, ret);
         t.stop(comma);
+        printout(ret, 4);
 
         /* Task 5 */
         t.start();
-        algorithms::alg3::task5(grid, height, ret_rec);
-        printout(ret_rec, 4);
+        algorithms::alg3::task5(grid, height, ret);
         t.stop(eol);
+        printout(ret, 4);
+}
+
 void
 execute(FILE *inf)
 {
