@@ -5,33 +5,40 @@
 using namespace algorithms::alg2;
 
 void
-task3(vector<vector<int>> &mat, int h, pair<pair<int, int>, pair<int, int>> &ret)
+algorithms::alg2::task3(vector<vector<int>> &mat, int h, int *ret)
 {
-	int max_sz = 0;
-        int ret_pairs[4];
+	uint32_t max_sz = 0;
+        bool flag;
 	for(uint32_t i = 0; i < mat.size(); i++) {
-		int flag = 1;
-		for(uint32_t j = i; j < mat[i].size(); j++) {
-                        uint32_t k = j, l = i;
-			for(; k < mat.size() && flag; k++) {
-				for(; i < mat[i].size() && flag; l++) {
-					if(mat[k][j] < h)
-						flag = 0;
-				}
-			}
-			if(flag) {
-				int sz = (i + 1) * (j + 1);
-				if (max_sz < sz) {
-					max_sz = sz;
-                                        ret_pairs[0] = k;
-                                        ret_pairs[1] = l;
-                                        ret_pairs[2] = i;
-                                        ret_pairs[3] = j;
+		for(uint32_t j = 0; j < mat[i].size(); j++) {
+                        uint32_t k, l;
+			for(k=i; k < mat.size(); k++) {
+				for(l=j; l < mat[i].size(); l++) {
+                                        flag = true;
+                                        uint32_t x, y;
+                                        for(x=i; x<=k && flag; x++) {
+                                                for(y=j; y<=l && flag; y++) {
+                                                        if(mat[x][y] < h)
+                                                                flag = false;
+                                                }
+                                        }
+                                if(flag) {
+                                        uint32_t a = k-i, b = l-j;
+                                        if(a==0)
+                                                a=1;
+                                        if(b==0)
+                                                b=1;
+                                        uint32_t sz = a*b;
+                                        if (max_sz < sz) {
+                                                max_sz = sz;
+                                                ret[0] = i;
+                                                ret[1] = j;
+                                                ret[2] = k;
+                                                ret[3] = l;
+                                        }
                                 }
+				}
 			}
 		}
 	}
-
-        ret.first = pair<int, int>(ret_pairs[0], ret_pairs[1]);
-        ret.second = pair<int, int>(ret_pairs[2], ret_pairs[3]);
 }
