@@ -9,10 +9,12 @@
 #include"algorithms/alg1.h"
 #include"algorithms/alg2.h"
 #include"algorithms/alg3.h"
+#include"timer/timer.h"
 
 using std::vector;
 using std::cout;
 using std::endl;
+using timer::Timer;
 using namespace algorithms::alg2;
 
 FILE *logfile = stdout;
@@ -64,27 +66,39 @@ printout(int *ret, int sz)
 void
 task_runner(vector<vector<int>> &grid, int height)
 {
+        string comma = ",", eol = "\n";
         int ret_sq[2] = {0}, ret_rec[4] = {0};
+        Timer t;
 
         /* Task 1 */
+        t.start();
         algorithms::alg1::task1(grid, height, ret_sq);
         printout(ret_sq, 2);
+        t.stop(comma);
 
         /* Task 2 */
+        t.start();
         algorithms::alg1::task2(grid, height, ret_sq);
         printout(ret_sq, 2);
+        t.stop(comma);
 
         /* Task 3 */
+        t.start();
         algorithms::alg2::task3(grid, height, ret_rec);
         printout(ret_rec, 4);
+        t.stop(comma);
 
         /* Task 4 */
+        t.start();
         algorithms::alg3::task4(grid, height, ret_rec);
         printout(ret_rec, 4);
+        t.stop(comma);
 
         /* Task 5 */
+        t.start();
         algorithms::alg3::task5(grid, height, ret_rec);
         printout(ret_rec, 4);
+        t.stop(eol);
 }
 
 int
