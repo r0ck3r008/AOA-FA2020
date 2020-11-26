@@ -6,11 +6,17 @@
 #include<unistd.h>
 #include<errno.h>
 
+#include"algorithms/alg2.h"
+
 using std::vector;
+using std::cout;
+using std::endl;
+using namespace algorithms::alg2;
 
 FILE *logfile = stdout;
 
-void input_tc(vector<vector<int>> &grid, int *height, FILE *f)
+void
+input_tc(vector<vector<int>> &grid, int *height, FILE *f)
 {
         char *line=NULL;
         size_t n=0;
@@ -41,7 +47,23 @@ void input_tc(vector<vector<int>> &grid, int *height, FILE *f)
         }
 }
 
-int main(int argc, char **argv)
+void
+task_runner(vector<vector<int>> &grid, int height)
+{
+        int ret[4]={0};
+        algorithms::alg2::task3(grid, height, ret);
+
+        for(int i=0; i<4; i++) {
+                cout << ret[i];
+                if(i!=3)
+                        cout << ",";
+                else
+                        cout << endl;
+        }
+}
+
+int
+main(int argc, char **argv)
 {
         if(argc<2) {
                 fprintf(stderr, "[!]Usage: ./AlgoTowers <input_file> [<logfile_name>]\n");
@@ -64,6 +86,8 @@ int main(int argc, char **argv)
         vector<vector<int>> grid;
         int height=0;
         input_tc(grid, &height, inf);
+
+        task_runner(grid, height);
 
         fclose(inf);
         fclose(logfile);
