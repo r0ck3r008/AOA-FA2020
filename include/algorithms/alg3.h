@@ -7,10 +7,10 @@ using std::vector;
 
 namespace algorithms {
 	namespace alg3 {
-		int task4(vector<vector<int>> &, int,
-                                int *);
-		int task5(vector<vector<int>> &, int,
-                                int *);
+		int task4(vector<vector<int>> &,
+                                        int *);
+		void task5(vector<vector<int>> &,
+                                        int *);
 	}
 }
 
