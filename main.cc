@@ -40,13 +40,13 @@ task_runner(vector<vector<int>> &grid, int height)
 
         /* Task 1 */
         t.start();
-        algorithms::alg1::task1(grid, height, ret);
+        algorithms::alg1::task1(grid, ret);
         t.stop(comma);
         printout(ret, 4);
 
         /* Task 2 */
         t.start();
-        algorithms::alg1::task2(grid, height, ret);
+        algorithms::alg1::task2(grid, ret);
         t.stop(comma);
         printout(ret, 4);
 
