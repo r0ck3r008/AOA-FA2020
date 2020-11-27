@@ -32,7 +32,7 @@ printout(int *ret, int sz)
 }
 
 void
-task_runner(vector<vector<int>> &grid, int height)
+task_runner(vector<vector<int>> &grid)
 {
         string comma = ",", eol = "\n";
         int ret[4] = {0};
@@ -52,19 +52,19 @@ task_runner(vector<vector<int>> &grid, int height)
 
         /* Task 3 */
         t.start();
-        algorithms::alg2::task3(grid, height, ret);
+        algorithms::alg2::task3(grid, ret);
         t.stop(comma);
         printout(ret, 4);
 
         /* Task 4 */
         t.start();
-        algorithms::alg3::task4(grid, height, ret);
+        algorithms::alg3::task4(grid, ret);
         t.stop(comma);
         printout(ret, 4);
 
         /* Task 5 */
         t.start();
-        algorithms::alg3::task5(grid, height, ret);
+        algorithms::alg3::task5(grid, ret);
         t.stop(eol);
         printout(ret, 4);
 }
@@ -99,7 +99,7 @@ execute(FILE *inf)
                 }
         }
 
-        task_runner(grid, height);
+        task_runner(grid);
 }
 
 int
