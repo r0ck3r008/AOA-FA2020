@@ -8,8 +8,8 @@ using std::pair;
 
 namespace algorithms {
 	namespace alg2 {
-		void task3(vector<vector<int>> &, int,
-                                        int *);
+		void task3(vector<vector<int>> &,
+                                                int *);
 	}
 }
 

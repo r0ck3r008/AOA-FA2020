@@ -5,7 +5,7 @@
 using namespace algorithms::alg2;
 
 void
-algorithms::alg2::task3(vector<vector<int>> &mat, int h, int *ret)
+algorithms::alg2::task3(vector<vector<int>> &mat, int *ret)
 {
 	uint32_t max_sz = 0;
         bool flag;
@@ -18,16 +18,12 @@ algorithms::alg2::task3(vector<vector<int>> &mat, int h, int *ret)
                                         uint32_t x, y;
                                         for(x=i; x<=k && flag; x++) {
                                                 for(y=j; y<=l && flag; y++) {
-                                                        if(mat[x][y] < h)
+                                                        if(mat[x][y] == 0)
                                                                 flag = false;
                                                 }
                                         }
                                 if(flag) {
-                                        uint32_t a = k-i, b = l-j;
-                                        if(a==0)
-                                                a=1;
-                                        if(b==0)
-                                                b=1;
+                                        uint32_t a = k-i+1, b = l-j+1;
                                         uint32_t sz = a*b;
                                         if (max_sz < sz) {
                                                 max_sz = sz;
