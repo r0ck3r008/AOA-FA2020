@@ -7,7 +7,7 @@ using std::vector;
 
 namespace algorithms {
 	namespace alg3 {
-		int task4(vector<vector<int>> &,
+		void task4(vector<vector<int>> &,
                                         int *);
 		void task5(vector<vector<int>> &,
                                         int *);
