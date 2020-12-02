@@ -13,6 +13,17 @@ algorithms::alg3::task4(vector<vector<int>> &mat, int *ret)
         return max_sz;
 }
 
+/*
+ * rowisemax calculates the area of maximum size rectangle which
+ * is formed given the `height' array. `height' array is a 1D array
+ * of integers where each element represents the height of a rectangle
+ * with width 1. The maximum area rectangle may encompass multiple such
+ * width=1 rectangles partially or fully.
+ *
+ * It inputs the 1D matrix in form of the a reference to vector of int,
+ * a row parameter, pointer to an integer max_sz and pointer to an int
+ * array of size 4 to save the co-ordinates of the calculated max sized rectangle.
+ */
 void
 rowisemax(vector<int> &height, int row, int *max_sz, int *ret)
 {
@@ -57,6 +68,19 @@ rowisemax(vector<int> &height, int row, int *max_sz, int *ret)
         }
 }
 
+/*
+ * `task5' is the function that carries out the 5th task (bonus) in the assignment.
+ * It calculates the largest rectangle in terms of its area given a binary 2D matrix.
+ * It iterates over each element in the given 2D array and for each row it aggregates
+ * the number of 1s in a 1D array cumulatively with rows prior to it. If instead of 1
+ * it encounters zero, the cumulative sum is set to zero for corresponding element in
+ * 1D array. For each row it calls the `rowisemax' subroutine by passing current max_sz
+ * as well as current 1D cumulative sum.
+ *
+ * It inputs the binary 2D matrix in form of a reference to a vector of vectors of int
+ * along with a pointer to an int array of size 4 (pre-allocated) for it to store the
+ * co-ordinates top left and bottom right corners of maximum sized rectangle of 1s.
+ */
 void
 algorithms::alg3::task5(vector<vector<int>> &mat, int *ret)
 {
