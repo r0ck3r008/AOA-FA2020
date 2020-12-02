@@ -8,6 +8,15 @@ using namespace algorithms::alg1;
 using std::max;
 using std::min;
 
+/*
+ * topdown is a helper function for `task1'. For each (i, j) where 0 <= i < rows
+ * and 0 <= j < cols, it recursively calculates whether bottom, right or diagonally right element
+ * is 1. This caches the calculated element results per recursion to save calculating them again
+ * in the future.
+ *
+ * This takes a reference to the grid, current (i, j) as well as the reference to the `cache' vector
+ * as input and returns the length of the side square of 1 which has its top left corner as (i, j).
+ */
 int
 topdown(vector<vector<int>> &mat, uint32_t i, uint32_t j, vector<vector<int>> &cache)
 {
@@ -25,6 +34,16 @@ topdown(vector<vector<int>> &mat, uint32_t i, uint32_t j, vector<vector<int>> &c
         return cache[i][j];
 }
 
+/*
+ * `task1' is the topdown implementation of the dynamic programming algorithm to find the
+ * largest square of 1s in the given 2D matrix. It iterates over all the elements in the matrix
+ * and finds for each of them the width of the largest square of 1s with that element at top left
+ * corner. It is accomplished by the helper function `topdown'. The largest of those scares is
+ * what is selected in the end and its top right and bottom left co-ordinates are calculated.
+ *
+ * This inputs the 2D matrix in the form of a reference to a vector of vectors along with a
+ * pointer to int array of size 4 (pre-allocated) to store the 4 co-ordinates. It returns nothing.
+ */
 void
 algorithms::alg1::task1(vector<vector<int>> &mat, int *ret)
 {
@@ -47,6 +66,16 @@ algorithms::alg1::task1(vector<vector<int>> &mat, int *ret)
         }
 }
 
+/*
+ * `task2' is the bottom up implementation of the `alg1', i.e., finding the largest square of 1s
+ * in a given binary 2D matrix. It accomplishes that by iterating over each element of the matrix
+ * and calculating the largest square with that element as its bottom right corner. It then takes
+ * the maximum of those squares' widths and selects that square as the final answer.
+ *
+ * It inputs the 2D matrix in the form of a reference to a vector of vectors along with a pointer
+ * to a pre-allocated int array of size 4. The int array is used to return the 4 co-ordinates while
+ * the subroutine actually returns nothing.
+ */
 void
 algorithms::alg1::task2(vector<vector<int>> &mat, int *ret)
 {

@@ -15,10 +15,15 @@ using std::vector;
 using std::cout;
 using std::endl;
 using timer::Timer;
-using namespace algorithms::alg2;
 
 FILE *logfile = stdout;
 
+/*
+ * printout prints the returned co-ordinates array.
+ *
+ * It inputs the pointer to the pre-allocated int array with
+ * its size as second element. This returns nothing.
+ */
 void
 printout(int *ret, int sz)
 {
@@ -31,6 +36,12 @@ printout(int *ret, int sz)
         }
 }
 
+/*
+ * task_runner runs all the 4 tasks and handles the timer operations.
+ *
+ * It inputs the 2D array in form of reference to a vector of vectors.
+ * This returns nothing.
+ */
 void
 task_runner(vector<vector<int>> &grid)
 {
@@ -69,6 +80,13 @@ task_runner(vector<vector<int>> &grid)
         printout(ret, 4);
 }
 
+/*
+ * execute reads the input test case file and turns the provided 2D matrix
+ * into binary matrix by comparing each element to the height in the file.
+ * It then calls the task_runner and passes the 2D matrix to it.
+ *
+ * It inputs a pointer to the opened file pointer.
+ */
 void
 execute(FILE *inf)
 {
@@ -102,6 +120,12 @@ execute(FILE *inf)
         task_runner(grid);
 }
 
+/*
+ * main function serves as the entry point to the programs and checks to see
+ * if the provided arguments are sane. It then opens the input file and logfile
+ * (if necessary) and passes all of it to execute function. In the end it closes
+ * the files it opened.
+ */
 int
 main(int argc, char **argv)
 {

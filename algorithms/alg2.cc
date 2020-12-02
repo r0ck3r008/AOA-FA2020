@@ -4,6 +4,17 @@
 
 using namespace algorithms::alg2;
 
+/*
+ * `task3' is the implementation of the brute force algorithm to calculate the max sized
+ * rectangle of 1s in a given 2D binary matrix. The subroutine calculates the largest rectange
+ * for each window of (i1, j1) and (i2, j2) element within the matrix where 0 <= i1, i2 < rows,
+ * 0 <= j1, j2 < cols, i2 <= i1 and j2 <= j1. For each such rectangle, it calculates the area
+ * and eventually selects the one with the largest.
+ *
+ * The subroutine inputs the 2D matrix in the form of a reference to a vector of vectors along
+ * with a pointer to an int array of size 4 which must be prealloacted to store the co-ordinates.
+ * The function itself does not return anything.
+ */
 void
 algorithms::alg2::task3(vector<vector<int>> &mat, int *ret)
 {
