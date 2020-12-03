@@ -1,16 +1,16 @@
 #include<iostream>
+#include<algorithm>
 
 #include"algorithms/alg3.h"
 
 using namespace algorithms::alg3;
-using std::max;
+using std::min;
+using std::pair;
 
-int
+void
 algorithms::alg3::task4(vector<vector<int>> &mat, int *ret)
 {
-        int max_sz = 0;
 
-        return max_sz;
 }
 
 /*
