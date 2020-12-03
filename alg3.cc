@@ -5,12 +5,41 @@
 
 using namespace algorithms::alg3;
 using std::min;
-using std::pair;
 
+/*
+ * task4 implements the max rectangle algorithm with time complexity O(mn)
+ * and uses a dp table of space complexity O(mn).
+ *
+ * It inputs the 2D binary array as a reference to vector of vectors of integers
+ * along with a pointer to a pre-allocated integer array of size 4 to fill and
+ * return the co-ordinates of the max rectangle. It returns void.
+ */
 void
 algorithms::alg3::task4(vector<vector<int>> &mat, int *ret)
 {
+        vector<vector<int>> dp(mat.size(), vector<int>(mat[0].size(), 0));
+        int max_sz = 0, sz, len, width;
 
+        for(uint32_t i=0; i<mat.size(); i++) {
+                for(uint32_t j=0; j<mat[0].size(); j++) {
+                        if(mat[i][j]) {
+                                dp[i][j] = (j==0) ? (1) : (dp[i][j-1] + 1);
+                                len = dp[i][j];
+                                for(int k=i; k>=0; k--) {
+                                        len = min(len, dp[k][j]);
+                                        width = i - k + 1;
+                                        sz = len*width;
+                                        if(sz > max_sz) {
+                                                max_sz = sz;
+                                                ret[0] = k;
+                                                ret[1] = j - len + 1;
+                                                ret[2] = i;
+                                                ret[3] = j;
+                                        }
+                                }
+                        }
+                }
+        }
 }
 
 /*
