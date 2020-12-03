@@ -2,7 +2,7 @@ COMPILER := g++
 COMPILER_FLAGS := -g
 COMPILE_PATH := ${shell pwd}/include
 
-ALL_OBJS := algorithms/*.o timer/*.o main.o
+ALL_OBJS := *.o
 
 all: AlgoTowers
 
@@ -14,17 +14,13 @@ main_obj: main.cc
 	${COMPILER} -I${COMPILE_PATH} ${COMPILER_FLAGS} -c main.cc
 
 algorithms_objs:
-	COMPILER=${COMPILER} COMPILE_PATH=${COMPILE_PATH} \
-		   COMPILER_FLAGS=${COMPILER_FLAGS} $(MAKE) -C algorithms/
+	${COMPILER} -I${COMPILE_PATH} ${COMPILE_FLAGS} -c alg*.cc
 
 timer_objs:
-	COMPILER=${COMPILER} COMPILE_PATH=${COMPILE_PATH} \
-		   COMPILER_FLAGS=${COMPILER_FLAGS} $(MAKE) -C timer/
+	${COMPILER} -I${COMPILE_PATH} ${COMPILE_FLAGS} -c timer.cc
 
 clean_objs:
-	$(MAKE) -C algorithms/ clean
-	$(MAKE) -C timer/ clean
-	rm -f main.o
+	rm -f *.o
 
 clean: clean_objs
 	rm -rf AlgoTowers

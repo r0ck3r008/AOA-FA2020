@@ -6,6 +6,6 @@ tmp/*
 .clang
 testcases/*
 !testcases/.gitkeep
-doc/Report.*
-!doc/Report.tex
-doc/pdfa.xmpi
+Report.*
+Report.tex
+pdfa.xmpi

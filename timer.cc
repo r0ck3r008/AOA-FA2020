@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<string.h>
 
-#include"timer/timer.h"
+#include"timer.h"
 
 extern FILE *logfile;
 

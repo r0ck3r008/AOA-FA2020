@@ -1,7 +1,7 @@
 #include<iostream>
 #include<algorithm>
 
-#include"algorithms/alg3.h"
+#include"alg3.h"
 
 using namespace algorithms::alg3;
 using std::min;

@@ -6,10 +6,10 @@
 #include<unistd.h>
 #include<errno.h>
 
-#include"algorithms/alg1.h"
-#include"algorithms/alg2.h"
-#include"algorithms/alg3.h"
-#include"timer/timer.h"
+#include"alg1.h"
+#include"alg2.h"
+#include"alg3.h"
+#include"timer.h"
 
 using std::vector;
 using std::cout;

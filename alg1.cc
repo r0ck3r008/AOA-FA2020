@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 #include<algorithm>
 
-#include"algorithms/alg1.h"
+#include"alg1.h"
 
 using namespace algorithms::alg1;
 using std::max;

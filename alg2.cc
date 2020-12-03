@@ -1,6 +1,6 @@
 #include<iostream>
 
-#include"algorithms/alg2.h"
+#include"alg2.h"
 
 using namespace algorithms::alg2;
 
