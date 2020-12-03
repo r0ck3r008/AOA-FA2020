@@ -18,15 +18,13 @@ using namespace algorithms::alg2;
 void
 algorithms::alg2::task3(vector<vector<int>> &mat, int *ret)
 {
-	uint32_t max_sz = 0;
+	uint32_t max_sz = 0, k, l, x, y;
         bool flag;
 	for(uint32_t i = 0; i < mat.size(); i++) {
 		for(uint32_t j = 0; j < mat[i].size(); j++) {
-                        uint32_t k, l;
 			for(k=i; k < mat.size(); k++) {
 				for(l=j; l < mat[i].size(); l++) {
                                         flag = true;
-                                        uint32_t x, y;
                                         for(x=i; x<=k && flag; x++) {
                                                 for(y=j; y<=l && flag; y++) {
                                                         if(mat[x][y] == 0)
